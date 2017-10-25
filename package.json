@@ -1,0 +1,28 @@
+{
+  "name": "shopping",
+  "version": "1.0.0",
+  "description": "qwwq",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dai845815124/shopping.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dai845815124/shopping/issues"
+  },
+  "homepage": "https://github.com/dai845815124/shopping#readme",
+  "devDependencies": {
+    "body-parser": "^1.18.2",
+    "crypto": "^1.0.1",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "mysql": "^2.15.0",
+    "q": "^1.5.1",
+    "serve-favicon": "^2.4.5"
+  }
+}

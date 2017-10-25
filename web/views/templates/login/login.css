@@ -1,0 +1,14 @@
+.login .lo-login{
+	overflow: hidden;
+}
+.login .lo-login>.fl{
+	float: left;
+	margin-left: 10%;
+	width: 30%;
+}
+
+.login .lo-login>.fr{
+	float: right;
+	margin-right: 10%;
+	width: 30%;
+}

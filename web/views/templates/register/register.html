@@ -1,0 +1,33 @@
+<ion-header-bar class="bar-assertive">
+	<span class="title">注册</span>
+</ion-header-bar>
+<ion-content class="register">
+	<ion-list>
+		<ion-item class="item-input item-stacked-label">
+		<span class="input-label"><i class="icon ion-ios-email assertive"></i></span>
+    <input type="text" placeholder="邮箱" ng-model="data.email" />
+		</ion-item>
+		<ion-item class="item-input item-stacked-label">
+		<span class="input-label"><i class="icon ion-android-phone-portrait assertive"></i></span>
+    <input type="text" placeholder="手机号码" ng-model="data.phone" />
+		</ion-item>
+		<ion-item class="item-input item-stacked-label">
+		<span class="input-label"><i class="icon ion-ios-person assertive"></i></span>
+    <input type="text" placeholder="匿名" ng-model="data.nickname" />
+		</ion-item>
+		<ion-item class="item-input item-stacked-label">
+		<span class="input-label"><i class="icon ion-ios-locked assertive"></i></span>
+    <input type="password" placeholder="密码" ng-model="data.pwd" />
+		</ion-item>
+		<ion-item class="item-input item-stacked-label">
+		<span class="input-label"><i class="icon ion-ios-locked assertive"></i></span>
+    <input type="password" placeholder="确认密码" ng-model="data.cpwd" />
+		</ion-item>
+	</ion-list>
+	<div class="padding-horizontal padding-top">
+		<button class="button button-assertive button-block" ng-click="register();">注 册</button>
+
+		<div class="button button-outline button-block button-assertive reg-login">登 录</div>
+	</div>
+	
+</ion-content>
