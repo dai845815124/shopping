@@ -9,7 +9,7 @@ const utils = require(__basename + '/lib/utils/utils.js');
 class RoutesController {
 	constructor () {}
 
-	homeController (req, res) {
+	rootController (req, res) {
 		res.render('index');
 	}
 
@@ -35,6 +35,37 @@ class RoutesController {
 				res.send(common.register.error);
 			})
 	}
+
+	loginController (req, res) {
+		utils.addCrypto(req.body, 'pwd');
+		console.log('req.body ==> ', req.body);
+		let loginsql = SQL.findOneForLogin(req.body);
+		console.log('loginsql ==> ', loginsql);
+		service.query(loginsql)
+			.then((result) => {
+				console.log('result ...==> ', result);
+				if (Array.isArray(result) && result.length === 1) {
+					res.send(common.login.success);
+				} else {
+					res.send(common.login.warning);
+				}
+			})
+			.catch((err) => {
+				res.send(common.login.error);
+			})
+	}
+
+	homeController (req, res) {
+		let homesql = SQL.findALLForHome();
+		service.query(homesql)
+			.then((result) => {
+				res.send(result);
+			})
+			.catch((err) => {
+				res.json({msg: '查询失败'});
+			})
+	}
+
 }
 
 module.exports = new RoutesController();

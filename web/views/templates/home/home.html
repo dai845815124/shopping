@@ -4,6 +4,20 @@
     <input type="text" placeholder="搜索...">
   </label>
 </ion-header-bar>
-<ion-content>
-	<h1>首页</h1>
+<ion-content class="home">
+	<div class="row row-wrap">
+		<div class="col col-50" ng-repeat="item in data">
+			<div class="pro-bg" ng-click="goPage('details', {id: item.pid});">
+				<div>
+					<img class="full-image" ng-src="{{item.imgUrl}}" />
+				</div>
+				<div class="pro-info">
+					<p class="fl padding-left">{{item.name}}</p>
+					<p class="fr padding-right assertive"><span>￥</span><span>{{item.price}}</span></p>
+				</div>
+				<div class="padding-left pro-desc">{{item.desc}}</div>
+			</div>
+		</div>
+
+	</div>
 </ion-content>

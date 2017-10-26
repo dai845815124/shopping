@@ -5,8 +5,10 @@ angular.module('app')
 			//提示信息模块
 			tips: {
 
+
+
 				showTips: function (msg, scope) {
-					var tips = $ionicPopup.show({
+					scope.tips = $ionicPopup.show({
 						template: '<div style="text-align: center;">' + msg + '</div>',
 						title: '提示消息',
 						scope: scope,
@@ -15,7 +17,7 @@ angular.module('app')
 								text: '确认',
 								type: 'button-assertive',
 								onTap: function () {
-									tips.close();
+									scope.tips.close();
 								}
 							}
 						]

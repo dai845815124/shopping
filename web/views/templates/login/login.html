@@ -5,19 +5,19 @@
 	<ion-list>
 		<ion-item class="item-input item-stacked-label">
 			<span class="input-label"><i class="icon ion-ios-email assertive"></i></span>
-	    <input type="text" placeholder="邮箱" />
+	    <input type="text" placeholder="邮箱" ng-model="data.email" />
 		</ion-item>
 		<ion-item class="item-input item-stacked-label">
 			<span class="input-label"><i class="icon ion-ios-locked assertive"></i></span>
-	    <input type="password" placeholder="密码" />
+	    <input type="password" placeholder="密码" ng-model="data.pwd" />
 		</ion-item>
 	</ion-list>
 	<div class="padding-horizontal padding-top">
-		<button class="button button-assertive button-block">登 录</button>
+		<button class="button button-assertive button-block" ng-click="login();">登 录</button>
 	</div>
 	<div class="lo-login">
 		<div class="fl">
-			<div class="button button-outline button-assertive button-block">注 册</div>
+			<div class="button button-outline button-assertive button-block" ui-sref="register">注 册</div>
 		</div>
 		<div class="fr">
 			<div class="button button-outline button-assertive button-block">忘记密码</div>

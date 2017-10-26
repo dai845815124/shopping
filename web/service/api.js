@@ -8,6 +8,14 @@ angular.module('app')
 					method: 'POST',
 					data: data
 				});
+			},
+
+			fetchGet: function (url, params) {
+				return $http({
+					url: url,
+					method: 'GET',
+					params: params
+				});
 			}
 
 		};
