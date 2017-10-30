@@ -6,6 +6,8 @@ const common = require(__basename + '/common/common.js');
 
 const utils = require(__basename + '/lib/utils/utils.js');
 
+const moment = require('moment');
+
 class RoutesController {
 	constructor () {}
 
@@ -63,6 +65,67 @@ class RoutesController {
 			})
 			.catch((err) => {
 				res.json({msg: '查询失败'});
+			})
+	}
+
+	detailsController (req, res) {
+		let detailssql = SQL.findOneForDetails(req.query);
+		service.query(detailssql)
+			.then((result) => {
+				res.send(result);
+			})
+			.catch((err) => {
+				res.json({'msg': '查询失败'})
+			})
+	}
+
+	commentController (req, res) {
+		let commentsql = SQL.findOneForComment(req.query);
+		service.query(commentsql)
+			.then((result) => {
+				result.forEach((v) => {
+					v.commentTime = moment(v.commentTime).format('YYYY-MM-DD HH:mm:ss');
+				});
+				res.send(result);
+			})
+			.catch((err) => {
+				res.json({'msg': '查询失败'})
+			})
+	}
+
+	shopcartController (req, res) {
+		let shopcartsql = SQL.findAllForShopcart(req.query);
+		service.query(shopcartsql)
+			.then((result) => {
+				result.forEach((v) => {
+					v.cartTime = moment(v.cartTime).format('YYYY-MM-DD HH:mm:ss');
+				})
+				res.send(result);
+			})
+			.catch((err) => {
+				res.json({'msg': '查询失败'})
+			})
+	}
+
+	addShopcartController (req, res) {
+		let addshopcartsql = SQL.insertOneForShopcart(req.query);
+		service.query(addshopcartsql)
+			.then((result) => {
+				res.json({code: 200});
+			})
+			.catch((err) => {
+				res.send(err);
+			})
+	}
+
+	settleController (req, res) {
+		let settlesql = SQL.findAllForSettle(req.query.id);
+		service.query(settlesql)
+			.then((result) => {
+				res.send(result);
+			})
+			.catch((err) => {
+				res.send(err);
 			})
 	}
 

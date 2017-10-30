@@ -1,11 +1,31 @@
 <ion-header-bar class="bar-assertive">
-	<button class="button icon ion-ios-arrow-left"></button>
+	<button class="button icon ion-ios-arrow-left button-clear" ng-click="goBack();"></button>
 	<span class="title">商品详情</span>
 </ion-header-bar>
-<ion-content>
+<ion-content class="details padding-horizontal">
 	<ion-list class="card">
 		<ion-item class="item-body">
-			<img class="full-image" src="/images/images05_Pillow_@3x.png" />
+			<img class="full-image" ng-src="{{data[0].imgUrl}}" />
+			<div class="name-price padding-horizontal">
+				<p class="fl">{{data[0].name}}</p>
+				<p class="fr"><span>￥</span><span>{{data[0].price}}</span></p>
+			</div>
+			<p>
+	      <span class="subdued">月销售 {{data[0].monthCount}}</span>
+	      <span class="subdued padding-left">库存 {{data[0].surplusCount}}</span>
+	      <span class="count-right">
+	      	<span class="fl padding-right">数量</span>
+	      	<input class="count fl" type="text" ng-model="pdetails.count" />
+	      </span>
+    	</p>
+			<p>{{data[0].desc}}</p>
+			 <p>
+	      <span class="subdued">{{data[0].like}} 喜欢</span>
+	      <span class="subdued padding-left">{{data[0].notlike}} 不喜欢</span>
+    		</p>
+    		<div class="button button-assertive button-outline button-small" ng-click="goPage('comment', {id: data[0].did});">查看全部评论</div>
+    		<div class="fr assertive"><span class="padding-right">总金额</span><span>￥{{pdetails.count * data[0].price}}</span></div>
+    		<div class="button button-assertive button-block" ng-click="addShopCart();">加入购物车</div>
 		</ion-item>
 	</ion-list>
 </ion-content>

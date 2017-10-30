@@ -23,6 +23,17 @@ angular.module('app')
 				url: '/main/find',
 				templateUrl: '/templates/find/find.html'
 			})
+			.state('main.shopcart', {
+				url: '/main/shopcart',
+				templateUrl: '/templates/shopcart/shopcart.html',
+				controller: 'shopcartController',
+				cache: false,
+				resolve: {
+					des: ['$ocLazyLoad', function ($ocLazyLoad) {
+						return $ocLazyLoad.load('main.shopcart');
+					}]
+				}
+			})
 			.state('register', {
 				url: '/register',
 				templateUrl: '/templates/register/register.html',
@@ -46,12 +57,32 @@ angular.module('app')
 				}
 			})
 			.state('details', {
-				url: '/details',
+				url: '/details/:id',
 				templateUrl: '/templates/details/details.html',
 				controller: 'detailsController',
 				resolve: {
 					des: ['$ocLazyLoad', function ($ocLazyLoad) {
 						return $ocLazyLoad.load('details');
+					}]
+				}
+			})
+			.state('comment', {
+				url: '/comment/:id',
+				templateUrl: '/templates/comment/comment.html',
+				controller: 'commentController',
+				resolve: {
+					des: ['$ocLazyLoad', function ($ocLazyLoad) {
+						return $ocLazyLoad.load('comment');
+					}]
+				}
+			})
+			.state('settle', {
+				url: '/settle/:id',
+				templateUrl: '/templates/settle/settle.html',
+				controller: 'settleController',
+				resolve: {
+					des: ['$ocLazyLoad', function ($ocLazyLoad) {
+						return $ocLazyLoad.load('settle');
 					}]
 				}
 			})

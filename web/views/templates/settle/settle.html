@@ -1,0 +1,33 @@
+<ion-header-bar class="bar-assertive">
+	<button class="button icon ion-ios-arrow-left button-clear" ng-click="goBack();"></button>
+	<span class="title">结算</span>
+</ion-header-bar>
+<ion-content class="padding-horizontal settle">
+	<ion-list class="card">
+		<ion-item class="item-body" ng-repeat="item in data">
+			<img class="full-image" ng-src="{{item.imgUrl}}" />
+			<div class="pro-info">
+				<div class="row row-wrap">
+					<div class="col col-33 text-center">商品名称</div>
+					<div class="col col-33 text-center">商品价格</div>
+					<div class="col col-33 text-center">商品数量</div>
+					<div class="col col-33 text-center">{{item.pname}}</div>
+					<div class="col col-33 text-center assertive">￥{{item.price}}</div>
+					<div class="col col-33 text-center">{{item.count}}</div>
+				</div>
+			</div>
+			<div class="address padding-bottom">
+				<p class="fl">收货人 {{item.nickname}}</p>
+				<p class="fr">联系方式 {{item.phone}}</p>
+				<div class="ad">
+					<p>收货地址</p>
+					<p>{{item.address}}</p>
+				</div>
+			</div>
+		</ion-item>
+	</ion-list>
+</ion-content>
+<ion-footer-bar class="bar-stable">
+	<button class="button button-clear"><span class="assertive">总金额 ￥{{total}}</span></button>
+	<button class="button button-assertive">结 算</button>
+</ion-footer-bar>
