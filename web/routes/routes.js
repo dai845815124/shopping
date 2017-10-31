@@ -34,6 +34,17 @@ angular.module('app')
 					}]
 				}
 			})
+			.state('main.my', {
+				url: '/main/my',
+				templateUrl: '/templates/my/my.html',
+				controller: 'myController',
+				cache: false,
+				resolve: {
+					des: ['$ocLazyLoad', function ($ocLazyLoad) {
+						return $ocLazyLoad.load('main.my');
+					}]
+				}
+			})
 			.state('register', {
 				url: '/register',
 				templateUrl: '/templates/register/register.html',
@@ -83,6 +94,16 @@ angular.module('app')
 				resolve: {
 					des: ['$ocLazyLoad', function ($ocLazyLoad) {
 						return $ocLazyLoad.load('settle');
+					}]
+				}
+			})
+			.state('myorder', {
+				url: '/myorder',
+				templateUrl: '/templates/myorder/myorder.html',
+				controller: 'myorderController',
+				resolve: {
+					des: ['$ocLazyLoad', function ($ocLazyLoad) {
+						return $ocLazyLoad.load('myorder');
 					}]
 				}
 			})

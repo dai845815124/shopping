@@ -47,6 +47,13 @@ app.config(["$provide", "$compileProvider", "$controllerProvider", "$filterProvi
 		 			]
 		 		},
 		 		{
+		 			name: 'main.my',
+		 			files: [
+		 				'/templates/my/myController.js',
+		 				'/templates/my/my.css'
+		 			]
+		 		},
+		 		{
 		 			name: 'details',
 		 			files: [
 		 				'/templates/details/detailsController.js',
@@ -65,6 +72,13 @@ app.config(["$provide", "$compileProvider", "$controllerProvider", "$filterProvi
 		 			files: [
 		 				'/templates/settle/settleController.js',
 		 				'/templates/settle/settle.css'
+		 			]
+		 		},
+		 		{
+		 			name: 'myorder',
+		 			files: [
+		 				'/templates/myorder/myorderController.js',
+		 				'/templates/myorder/myorder.css'
 		 			]
 		 		}
 

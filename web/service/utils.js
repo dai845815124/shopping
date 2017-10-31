@@ -1,11 +1,10 @@
 angular.module('app')
-	.factory('utils', ['$ionicPopup', '$ionicLoading', function ($ionicPopup, $ionicLoading) {
+	.factory('utils', ['$ionicPopup', '$ionicLoading', '$ionicModal', function ($ionicPopup, $ionicLoading, $ionicModal) {
+
 		var u = {
 
 			//提示信息模块
 			tips: {
-
-
 
 				showTips: function (msg, scope) {
 					scope.tips = $ionicPopup.show({
@@ -33,7 +32,26 @@ angular.module('app')
 
 				hideLoadTips: function () {
 					$ionicLoading.hide();
+				},
+
+
+				initPopover: function (scope) {
+					$ionicModal.fromTemplateUrl('/templates/popover/popover.html', {
+						animation: 'slide-in-up',
+				    scope: scope
+				  }).then(function(popover) {
+				    scope.popover = popover;
+				  });
+				},
+
+				openPopover: function (scope) {
+					scope.popover.show();
+				},
+
+				closePopover: function (scope) {
+					scope.popover.hide();
 				}
+
 
 			},
 

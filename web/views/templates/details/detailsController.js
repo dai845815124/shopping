@@ -14,7 +14,8 @@ angular.module('app')
 					email: $rootScope.user.email,
 					nickname: $rootScope.user.nickname,
 					proid: $stateParams.id,
-					cartTime: ''
+					cartTime: '',
+					statusCode: 0
 				};
 
 				utils.tips.hideLoadTips();
@@ -29,6 +30,7 @@ angular.module('app')
 				utils.tips.showLoadTips();
 				API.fetchPut('/shopCart/' + $stateParams.id, $scope.pdetails)
 				.then(function (data) {
+					utils.tips.showTips('加入购物车成功', $scope);
 					utils.tips.hideLoadTips();
 				})
 				.catch(function (err) {

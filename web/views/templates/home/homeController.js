@@ -4,7 +4,6 @@ angular.module('app')
 		utils.tips.showLoadTips();
 		API.fetchGet('/main/home')
 			.then(function (data) {
-				console.log('data ==> ', data);
 				$scope.data = data.data;
 				utils.tips.hideLoadTips();
 			})

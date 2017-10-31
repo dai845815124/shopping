@@ -1,0 +1,11 @@
+.myorder{
+	background-color: #efefef;
+}
+
+.myorder .disc{
+	line-height: 31px
+}
+
+.myorder .btn{
+	float: right;
+}
